@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A fully featured admin app which can be used to build CRM, CMS, etc.">
+        <meta name="author" content="">
+
+        <link rel="shortcut icon" href="images/favicon_1.ico">
+
+        <title>App</title>
+
+        {% include 'css.html' %}
+
+
+
+    </head>
+
+
+
+    <body class="fixed-left">
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            {% include 'navbar.html' %}
+            <!-- Top Bar End -->
+
+
+            <!-- ========== Left Sidebar Start ========== -->
+            {% include 'sidebar.html' %}
+            <!-- Left Sidebar End -->
+
+
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+            <div class="content-page">
+                <!-- Start content -->
+                <div class="content">
+                    <div class="container">
+                        {% block content %}
+
+                        {% endblock %}
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <footer class="footer text-right">
+                    &copy;
+                    <span id="copyright">
+                        <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                    </span>
+                    Test
+                </footer>
+
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+            <!-- Right Sidebar -->
+            <div class="side-bar right-bar nicescroll">
+                <h4 class="text-center">Test functionality Lukhanyo</h4>
+                <div class="contact-list nicescroll">
+                    <ul class="list-group contacts-list">
+                        <li class="list-group-item">
+                            <a href="#">
+                                <span class="name">No functionality</span>
+                            </a>
+                            <span class="clearfix"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /Right-bar -->
+
+        </div>
+        <!-- END wrapper -->
+
+    {% include 'js.html' %}
+    </body>
+</html>
