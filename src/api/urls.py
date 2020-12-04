@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import home_view, HomeView, WeatherApi
+from .views import HomeView, WeatherApi
 
 urlpatterns = [
 
