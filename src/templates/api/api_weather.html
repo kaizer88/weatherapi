@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="pull-left page-title">Weather</h4>
+        <ol class="breadcrumb pull-right">
+            <li>{{ user|title }}</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><h3 class="panel-title">My Search</h3></div>
+                        <div class="panel-body">
+
+                            <form id="idForm" action="" method="POST" class="form-inline" role="form">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="city" placeholder="City">
+                                </div>
+
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="numberOfDays" placeholder="numberOfDays">
+                                </div>
+                                <div class="input-group">
+                                <button type="submit" class="btn btn-success waves-effect waves-light m-l-10">Search</button>
+                                </div>
+                            </form>
+                        </div> <!-- panel-body -->
+                    </div> <!-- panel -->
+                </div> <!-- col -->
+
+                        </div>
+            <div class="panel-body" id="result">
+                {% for i in forecast %}
+
+                <div class="row">
+                            <div class="col-lg-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">forecast day {{ i.no }}</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="progress progress-md">
+                                            <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: {{ i.min }}%;">
+                                                Min: {{ i.min }}
+                                            </div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: {{ i.max }}%;">
+                                                Max: {{ i.max }}
+                                            </div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: {{ i.average }}%;">
+                                                Average: {{ i.average }}
+                                            </div>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: {{ i.median }}%;">
+                                                Median: {{ i.median }}
+                                            </div>
+                                        </div>
+                                        <div class="progress progress-lg">
+                                            <div class="progress-bar progress-bar-purple" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: {{ i.humidity }}%;">
+                                                Humidity: {{ i.humidity }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div> <!-- End Row -->
+
+<script>
+
+</script>
+{% endblock %}
+
